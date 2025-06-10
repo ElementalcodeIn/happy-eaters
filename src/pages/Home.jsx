@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import logo from "../assets/logo_cleaned.png"
 import img from "../assets/dish.png"
 import { FaCrown, FaUtensils, FaSearch, FaChartLine, FaArrowRight } from 'react-icons/fa';
-import { PiCirclesFourDuotone } from "react-icons/pi";
+import { PiCirclesFourDuotone, PiArrowSquareRightFill } from "react-icons/pi";
 import { MdInfoOutline, MdHome} from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
@@ -66,7 +66,7 @@ export default function GrowthApp() {
   };
 
   return (
-    <div className="font-sans bg-gray-100 min-h-screen p-4">
+    <div className="font-sans bg-gray-100 min-h-screen p-4 pb-24">
       <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow">
         <div className="flex items-center space-x-4">
           <img src={logo} alt="logo" className="h-12 w-12 " />
@@ -156,10 +156,61 @@ export default function GrowthApp() {
         <h4 className="font-semibold text-sm">Your Daily Growth Guide</h4>
         <p className="text-xs text-gray-500">Explore key tools for smarter parenting.</p>
 
-        <div className="grid grid-cols-3 gap-3 mt-4 text-xs">
-          <div className="bg-white p-3 rounded-lg shadow">Daily Meal Plan</div>
-          <div className="bg-white p-3 rounded-lg shadow">Weight Gain Meals</div>
-          <div className="bg-white p-3 rounded-lg shadow">Growth Plan</div>
+         <div className="grid grid-cols-2 gap-4 mt-4 text-xs">
+          {/* Daily Meal Plan */}
+          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+            <h4 className="font-bold text-base mb-1">Daily Meal Plan</h4>
+            <p className="text-gray-500 mb-3">Check Today's Recipes</p>
+            <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
+              <PiArrowSquareRightFill size={24} className="text-white" />
+            </div>
+            <img src="/mealplan.png" alt="Daily Meal Plan" className="w-16 h-16" />
+          </button>
+          {/* Weight Gain Meals */}
+          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+            <h4 className="font-bold text-base mb-1">Weight Gain Meals</h4>
+            <p className="text-gray-500 mb-3">High-calorie meal ideas</p>
+            <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
+              <PiArrowSquareRightFill size={24} className="text-white" />
+            </div>
+            <img src="/weightgain.png" alt="Weight Gain Meals" className="w-16 h-16" />
+          </button>
+          {/* Open your Fridge */}
+          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+            <h4 className="font-bold text-base mb-1">Open your Fridge</h4>
+            <p className="text-gray-500 mb-3">Use what you have</p>
+            <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
+              <PiArrowSquareRightFill size={24} className="text-white" />
+            </div>
+            <img src="/fridge.png" alt="Open your Fridge" className="w-16 h-16" />
+          </button>
+          {/* Grocery List */}
+          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+            <h4 className="font-bold text-base mb-1">Grocery List</h4>
+            <p className="text-gray-500 mb-3">Shop for next week</p>
+            <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
+              <PiArrowSquareRightFill size={24} className="text-white" />
+            </div>
+            <img src="/grocery.png" alt="Grocery List" className="w-16 h-16" />
+          </button>
+          {/* Your baby's Growth */}
+          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+            <h4 className="font-bold text-base mb-1">Your baby's Growth</h4>
+            <p className="text-gray-500 mb-3">Track baby's progress</p>
+            <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
+              <PiArrowSquareRightFill size={24} className="text-white" />
+            </div>
+            <img src="/growth.png" alt="Your baby's Growth" className="w-16 h-16" />
+          </button>
+          {/* Cookbook */}
+          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+            <h4 className="font-bold text-base mb-1">{name}&#39;s cookbook</h4>
+            <p className="text-gray-500 mb-3">Track history</p>
+            <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
+              <PiArrowSquareRightFill size={24} className="text-white" />
+            </div>
+            <img src="/cookbook.png" alt="Cookbook" className="w-16 h-16" />
+          </button>
         </div>
       </div>
 
@@ -169,7 +220,7 @@ export default function GrowthApp() {
           <MdHome size={20} />
           <span>Home</span>
         </div>
-        <div className="flex flex-col items-center text-purple-600 text-xs">
+        <div className="flex flex-col items-center text-gray-400 text-xs">
           <FaUtensils size={20} />
           <span>Meal Plan</span>
         </div>
