@@ -66,79 +66,72 @@ export default function GrowthApp() {
   };
 
   return (
-    <div className="font-sans bg-gray-100 min-h-screen p-4 pb-24">
-      <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow">
+    <div className="font-sans bg-gray-100 min-h-screen p-2 md:p-6 lg:p-12 pb-32 max-w-5xl mx-auto">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row justify-between items-center bg-white p-4 md:p-8 rounded-xl shadow mb-6">
         <div className="flex items-center space-x-4">
-          <img src={logo} alt="logo" className="h-12 w-12 " />
+          <img src={logo} alt="logo" className="h-12 w-12 md:h-16 md:w-16" />
           <div>
-            <h2 className="text-lg font-semibold">Welcome {name}</h2>
-            <p className="text-sm text-gray-500">8 months</p>
+            <h2 className="text-lg md:text-2xl font-semibold">Welcome {name}</h2>
+            <p className="text-sm md:text-base text-gray-500">8 months</p>
           </div>
         </div>
-        <div className="flex space-x-3 text-purple-600">
-          <FaCrown size={24} />
-          <button onClick={() => navigate('/setting')} >
-            <PiCirclesFourDuotone size={24}/>
+        <div className="flex space-x-3 text-purple-600 mt-4 md:mt-0">
+          <FaCrown size={28} />
+          <button onClick={() => navigate('/setting')}>
+            <PiCirclesFourDuotone size={28}/>
           </button>
         </div>
       </div>
 
-
-      <div className="bg-white mt-4 p-4 rounded-xl shadow flex items-center justify-between">
+      {/* Weight Section */}
+      <div className="bg-white p-4 md:p-8 rounded-xl shadow flex flex-col md:flex-row items-center justify-between mb-6">
         <div>
-          <p className="text-sm text-gray-500 flex items-center gap-1">Weight details <MdInfoOutline /></p>
-          <p className="text-2xl font-bold">--.-- kg</p>
+          <p className="text-sm md:text-base text-gray-500 flex items-center gap-1">Weight details <MdInfoOutline /></p>
+          <p className="text-2xl md:text-4xl font-bold">--.-- kg</p>
         </div>
-        <div className="bg-blue-900 text-white p-2 rounded-full">
-          <FaArrowRight />
+        <div className="bg-blue-900 text-white p-3 rounded-full mt-4 md:mt-0">
+          <FaArrowRight size={28}/>
         </div>
       </div>
 
-      <div className="text-center mt-2 text-sm text-white bg-purple-600 font-medium rounded-full ">
+      {/* Update Reminder */}
+      <div className="text-center text-sm md:text-base text-white bg-purple-600 font-medium rounded-full py-2 mb-6 shadow">
         <button className="cursor-pointer">
-        Update every 15 days to track progress.
+          Update every 15 days to track progress.
         </button>
       </div>
 
-
-      <div className="mt-6">
-        <h3 className="font-semibold text-sm">Today's Tasty Pick!</h3>
-        <p className="text-xs text-gray-500 mb-2">Most Loved Dishes by Happy Eaters Community</p>
-
-        <div className="bg-yellow-50 p-3 rounded-lg flex items-center space-x-3">
-          <img src={img} alt="Dish" className="w-16 h-16 " />
-          <div>
-            <h4 className="font-semibold text-sm">Chikoo Rice Porridge with Seed Premix</h4>
-            <p className="text-xs text-gray-500">Tiffin Friendly | Gut Friendly | Snacks</p>
-            <p className="text-xs text-yellow-700 mt-1">⏱ 15 mins • Grains</p>
-          </div>
+      {/* Today's Tasty Pick */}
+      <div className="bg-white p-4 md:p-8 rounded-xl shadow flex flex-col md:flex-row items-center mb-6">
+        <img src={img} alt="Dish" className="w-20 h-20 md:w-32 md:h-32 mb-4 md:mb-0 md:mr-8" />
+        <div>
+          <h3 className="font-semibold text-lg md:text-xl mb-1">Today's Tasty Pick!</h3>
+          <p className="text-xs md:text-sm text-gray-500 mb-2">Most Loved Dishes by Happy Eaters Community</p>
+          <h4 className="font-semibold text-base md:text-lg">Chikoo Rice Porridge with Seed Premix</h4>
+          <p className="text-xs md:text-sm text-gray-500">Tiffin Friendly | Gut Friendly | Snacks</p>
+          <p className="text-xs md:text-sm text-yellow-700 mt-1">⏱ 15 mins • Grains</p>
         </div>
       </div>
 
-
-      <div className="text-center mt-2 text-sm text-white bg-purple-600 font-medium rounded-full">
-        <button className="cursor-pointer">
-        Refreshes in {formatTime(timer)}
-        </button>
-      </div>
-
-
-      <div className="mt-6 bg-white p-4 rounded-xl shadow transition-all duration-500">
-        <div className="text-xs mb-1">
+      {/* Live Section */}
+      <div className="bg-white p-4 md:p-8 rounded-xl shadow mb-8 transition-all duration-500">
+        <div className="text-xs md:text-sm mb-1 flex items-center gap-2">
           {ads[currentAd].live && (
-            <span className="bg-red-500 text-white px-2 py-0.5 rounded mr-2">LIVE</span>
+            <span className="bg-red-500 text-white px-2 py-0.5 rounded">LIVE</span>
           )}
           <span className="bg-purple-300 text-purple-900 px-2 py-0.5 rounded">Recording Available</span>
         </div>
-        <h4 className="font-semibold text-sm">{ads[currentAd].title}</h4>
-        <p className="text-xs text-gray-500 mt-1">{ads[currentAd].desc}</p>
-        <div className="text-xs mt-2">📅 {ads[currentAd].date}</div>
-        <div className="text-xs text-purple-600">{ads[currentAd].bonus}</div>
-        <div className="flex justify-between items-center mt-4">
-          <button className="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm">Join Now</button>
-          <img src={ads[currentAd].img} alt="Expert" className="h-12 w-12 rounded-full" />
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+          <div>
+            <h4 className="font-semibold text-base md:text-lg">{ads[currentAd].title}</h4>
+            <p className="text-xs md:text-sm text-gray-500 mt-1">{ads[currentAd].desc}</p>
+            <div className="text-xs md:text-sm mt-2">📅 {ads[currentAd].date}</div>
+            <div className="text-xs md:text-sm text-purple-600">{ads[currentAd].bonus}</div>
+            <button className="bg-purple-600 text-white px-4 py-2 rounded-lg text-sm mt-4">Join Now</button>
+          </div>
+          <img src={ads[currentAd].img} alt="Expert" className="h-16 w-16 md:h-24 md:w-24 rounded-full mt-4 md:mt-0" />
         </div>
-
         <div className="flex justify-center mt-2 space-x-2">
           {ads.map((_, idx) => (
             <button
@@ -151,14 +144,13 @@ export default function GrowthApp() {
         </div>
       </div>
 
-
+      {/* Growth Guide Grid */}
       <div className="mt-8 text-center">
-        <h4 className="font-semibold text-sm">Your Daily Growth Guide</h4>
-        <p className="text-xs text-gray-500">Explore key tools for smarter parenting.</p>
-
-         <div className="grid grid-cols-2 gap-4 mt-4 text-xs">
+        <h4 className="font-semibold text-lg md:text-xl">Your Daily Growth Guide</h4>
+        <p className="text-xs md:text-base text-gray-500 mb-4">Explore key tools for smarter parenting.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
           {/* Daily Meal Plan */}
-          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+          <button onClick={() => navigate('/meal')} className="bg-white rounded-2xl shadow flex flex-col items-center p-4 hover:shadow-lg transition">
             <h4 className="font-bold text-base mb-1">Daily Meal Plan</h4>
             <p className="text-gray-500 mb-3">Check Today's Recipes</p>
             <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
@@ -167,7 +159,7 @@ export default function GrowthApp() {
             <img src="/mealplan.png" alt="Daily Meal Plan" className="w-16 h-16" />
           </button>
           {/* Weight Gain Meals */}
-          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+          <button onClick={() => navigate('/weight')} className="bg-white rounded-2xl shadow flex flex-col items-center p-4 hover:shadow-lg transition">
             <h4 className="font-bold text-base mb-1">Weight Gain Meals</h4>
             <p className="text-gray-500 mb-3">High-calorie meal ideas</p>
             <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
@@ -176,7 +168,7 @@ export default function GrowthApp() {
             <img src="/weightgain.png" alt="Weight Gain Meals" className="w-16 h-16" />
           </button>
           {/* Open your Fridge */}
-          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+          <button onClick={() => navigate('/fridge')} className="bg-white rounded-2xl shadow flex flex-col items-center p-4 hover:shadow-lg transition">
             <h4 className="font-bold text-base mb-1">Open your Fridge</h4>
             <p className="text-gray-500 mb-3">Use what you have</p>
             <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
@@ -185,7 +177,7 @@ export default function GrowthApp() {
             <img src="/fridge.png" alt="Open your Fridge" className="w-16 h-16" />
           </button>
           {/* Grocery List */}
-          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+          <button onClick={() => navigate('/grocery')} className="bg-white rounded-2xl shadow flex flex-col items-center p-4 hover:shadow-lg transition">
             <h4 className="font-bold text-base mb-1">Grocery List</h4>
             <p className="text-gray-500 mb-3">Shop for next week</p>
             <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
@@ -194,7 +186,7 @@ export default function GrowthApp() {
             <img src="/grocery.png" alt="Grocery List" className="w-16 h-16" />
           </button>
           {/* Your baby's Growth */}
-          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+          <button onClick={() => navigate('/activity')} className="bg-white rounded-2xl shadow flex flex-col items-center p-4 hover:shadow-lg transition">
             <h4 className="font-bold text-base mb-1">Your baby's Growth</h4>
             <p className="text-gray-500 mb-3">Track baby's progress</p>
             <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
@@ -203,7 +195,7 @@ export default function GrowthApp() {
             <img src="/growth.png" alt="Your baby's Growth" className="w-16 h-16" />
           </button>
           {/* Cookbook */}
-          <button className="bg-white rounded-2xl shadow flex flex-col items-center p-4">
+          <button onClick={() => navigate('/personalMeal')} className="bg-white rounded-2xl shadow flex flex-col items-center p-4 hover:shadow-lg transition">
             <h4 className="font-bold text-base mb-1">{name}&#39;s cookbook</h4>
             <p className="text-gray-500 mb-3">Track history</p>
             <div className="flex justify-center items-center w-8 h-8 bg-blue-900 rounded mb-3">
@@ -214,8 +206,8 @@ export default function GrowthApp() {
         </div>
       </div>
 
-
-      <div className="fixed bottom-0 left-0 right-0 bg-white p-2 flex justify-around items-center shadow-inner border-t">
+      {/* Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white p-2 flex justify-around items-center shadow-inner border-t z-50">
         <div className="flex flex-col items-center text-purple-600 text-xs">
           <MdHome size={20} />
           <span>Home</span>
