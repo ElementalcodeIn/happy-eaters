@@ -95,7 +95,7 @@ export default function GrowthApp() {
       </div>
 
       <div className="text-center mt-2 text-sm text-white bg-purple-600 font-medium rounded-full ">
-        <button className="cursor-pointer">
+        <button onClick={() => navigate("/growth")} className="cursor-pointer">
         Update every 15 days to track progress.
         </button>
       </div>
