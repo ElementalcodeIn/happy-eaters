@@ -66,7 +66,9 @@ export default function GrowthApp() {
   };
 
   return (
+  
     <div className="font-sans bg-gray-100 min-h-screen p-4 pb-24">
+      {/* Header */}
       <div className="flex justify-between items-center bg-white p-4 rounded-xl shadow">
         <div className="flex items-center space-x-4">
           <img src={logo} alt="logo" className="h-12 w-12 " />
@@ -83,7 +85,8 @@ export default function GrowthApp() {
         </div>
       </div>
 
-
+      {/* Weight Tab */}
+      <button onClick={() => navigate("/growth")} className="cursor-pointer w-full">
       <div className="bg-white mt-4 p-4 rounded-xl shadow flex items-center justify-between">
         <div>
           <p className="text-sm text-gray-500 flex items-center gap-1">Weight details <MdInfoOutline /></p>
@@ -95,10 +98,10 @@ export default function GrowthApp() {
       </div>
 
       <div className="text-center mt-2 text-sm text-white bg-purple-600 font-medium rounded-full ">
-        <button onClick={() => navigate("/growth")} className="cursor-pointer">
+        
         Update every 15 days to track progress.
-        </button>
       </div>
+      </button>
 
 
       <div className="mt-6">

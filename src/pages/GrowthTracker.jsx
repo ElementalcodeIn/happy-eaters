@@ -110,7 +110,7 @@ export default function GrowthTracker() {
                 <button
                   className="absolute top-4 right-4 text-2xl text-gray-500 hover:text-gray-700"
                   onClick={() => setShowModal(false)}
-                  aria-label="Close"
+                  
                 >
                   &times;
                 </button>
@@ -125,8 +125,7 @@ export default function GrowthTracker() {
                       value={date}
                       onChange={e => setDate(e.target.value)}
                       style={{ minWidth: 0 }}
-                    />
-                    <FaRegCalendarAlt className="text-purple-400 text-xl ml-2" />
+                    />  
                   </div>
                 </div>
                 <div className="mb-6">
@@ -151,7 +150,7 @@ export default function GrowthTracker() {
                   <button
                     className="flex-1 bg-purple-400 text-white rounded-full py-2 font-semibold text-lg"
                     onClick={() => {
-                      // Save logic here
+                      
                       setShowModal(false);
                     }}
                   >
