@@ -1,10 +1,9 @@
 import { FaCog, FaCrown, FaUtensils, FaBullseye, FaHeadset, FaGlobe, FaInstagram, FaStar, FaFileContract, FaFileAlt, FaEdit, FaSync } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../context/UserContext";
+
 
 export default function Setting() {
-  const {name} = useUser();
   const navigate = useNavigate();
 
   return (

@@ -1,21 +1,33 @@
-import { useUser } from "../context/UserContext"; 
+import axios from "axios"; 
 import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdInfoOutline, MdHome} from 'react-icons/md';
 
-export default function Profile() {
-  const { name, setName } = useUser(); 
-  const [localName, setLocalName] = useState(name || "");
+// Define the Profile component as a function
+function Profile() {
+  const [name, setName] = useState("");
   const [gender, setGender] = useState("Boy");
   const [dob, setDob] = useState("");
   const [premature, setPremature] = useState(false);
   const [weight, setWeight] = useState("0.0");
   const [partnerCode, setPartnerCode] = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setName(localName); 
-    
+  async function handleSubmit(e) {
+    e.preventDefault(); 
+
+    const data = {
+      name: name,
+      gender,
+      dob: dob ? new Date(dob).toISOString() : null,
+      premature,
+    };
+
+    try {
+      const response = await axios.post("/api/v1/child", data);
+      alert("Profile saved!");
+    } catch (error) {
+      alert("Failed to save profile: " + (error.response?.data?.error || error.message));
+    }
   }
 
   return (
@@ -69,8 +81,8 @@ export default function Profile() {
             <input
               type="text"
               placeholder="Baby's Name"
-              value={localName}
-              onChange={e => setLocalName(e.target.value)}
+              value={name}
+              onChange={e => setName(e.target.value)}
               className="w-full border rounded-lg py-2 pl-3 pr-10 focus:outline-none focus:ring-2 focus:ring-purple-300"
             />
             <span className="absolute right-3 top-2.5 text-purple-400">
@@ -152,3 +164,5 @@ export default function Profile() {
     </div>
   );
 }
+
+export default Profile;

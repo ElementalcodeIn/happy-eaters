@@ -5,12 +5,11 @@ import { FaCrown, FaUtensils, FaSearch, FaChartLine, FaArrowRight } from 'react-
 import { PiCirclesFourDuotone, PiArrowSquareRightFill } from "react-icons/pi";
 import { MdInfoOutline, MdHome} from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '../context/UserContext';
+
 
 export default function GrowthApp() {
+  const [name, setName] = useState('');
   const [timer, setTimer] = useState(3600);
-
-  const{name} = useUser();
   const navigate =useNavigate();
 
   const ads = [
@@ -41,6 +40,7 @@ export default function GrowthApp() {
   ];
 
  
+
   const [currentAd, setCurrentAd] = useState(0);
 
   useEffect(() => {
@@ -73,7 +73,7 @@ export default function GrowthApp() {
         <div className="flex items-center space-x-4">
           <img src={logo} alt="logo" className="h-12 w-12 " />
           <div>
-            <h2 className="text-lg font-semibold">Welcome {name}</h2>
+            <h2 className="text-lg font-semibold">Welcome {}</h2>
             <p className="text-sm text-gray-500">8 months</p>
           </div>
         </div>
